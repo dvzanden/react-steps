@@ -12,19 +12,23 @@ export default function App() {
 
   function handlePrevious() {
     if (step > 1) {
-      setStep(step - 1);
+      setStep((currentStep) => currentStep - 1);
     }
   }
 
   function handleNext() {
     if (step < messages.length) {
-      setStep(step + 1);
+      setStep((currentStep) => currentStep + 1);
     }
+  }
+
+  function handleOpen() {
+    setIsOpen((open) => !open);
   }
 
   return (
     <>
-      <button className="close" onClick={() => setIsOpen(!isOpen)}>
+      <button className="close" onClick={handleOpen}>
         &times;
       </button>
       {isOpen && (
